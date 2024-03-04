@@ -1,6 +1,14 @@
 import { create } from "zustand";
 
+/*
+TODO: Interface AppState: โค้ดกำหนด interface AppState 
+TODO: เพื่อระบุชนิดของ state ทั้งหมดที่เก็บใน store นี้ 
+TODO: รวมถึง actions ที่ใช้ในการเปลี่ยนแปลง state
+*/
 interface AppState {
+  /*
+  TODO: กำหนดค่าเริ่มต้นของ State: ในฟังก์ชันที่ส่งเข้าไปใน create กำหนดค่าเริ่มต้นของ state ทั้งหมด 
+  */
   pick: number;
   showModal: boolean;
   showModal2: boolean;
@@ -20,7 +28,15 @@ interface AppState {
   onClose2: () => void;
 }
 
+/*
+TODO: Import Statements: โค้ดเริ่มต้นด้วยการ import create 
+TODO: จาก Zustand ซึ่งเป็นฟังก์ชันที่ใช้ในการสร้าง store ของเรา
+*/
 export const useStore = create<AppState>((set) => ({
+  /*
+  TODO: Zustand เพื่อสร้าง store ซึ่งรับฟังก์ชันที่มีการเรียก set เป็นพารามิเตอร์ ซึ่งใช้ในการอัปเดตค่า state
+  TODO:
+  */
   pick: 1,
   showModal: false,
   showModal2: false,
