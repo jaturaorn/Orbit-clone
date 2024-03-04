@@ -10,8 +10,8 @@ import { IoInfiniteSharp } from "react-icons/io5";
 import { DiNodejsSmall } from "react-icons/di";
 import { FaFeather } from "react-icons/fa";
 
-const SubBlock1 = ({ chain2 }: { chain2: any }) => {
-  const { setShowModal2, enabled, transpose } = useStore();
+const SubBlock1 = () => {
+  const { setShowModal2, enabled, transpose, chain2 } = useStore();
   return (
     <div
       className={`bg-base-300 absolute top-[43%] w-[450px] 

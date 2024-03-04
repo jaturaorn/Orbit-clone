@@ -9,8 +9,8 @@ import { DiNodejsSmall } from "react-icons/di";
 import { FaFeather, FaEthereum } from "react-icons/fa";
 import { RxCross1 } from "react-icons/rx";
 
-const Modal = ({ setChain1, chain2 }: { setChain1: any; chain2: any }) => {
-  const { onClose } = useStore();
+const Modal = () => {
+  const { onClose, setChain1, chain2 } = useStore();
 
   function click(a: number) {
     setChain1(a);

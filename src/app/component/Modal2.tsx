@@ -10,12 +10,14 @@ import { FaFeather } from "react-icons/fa";
 import { RxCross1 } from "react-icons/rx";
 import { FaEthereum } from "react-icons/fa";
 
-const Modal2 = ({ setChain2, chain1 }: { setChain2: any; chain1: any }) => {
-  const { onClose2 } = useStore();
+const Modal2 = () => {
+  const { onClose2, setChain2, chain1 } = useStore();
+
   function click(a: number) {
     setChain2(a);
     onClose2();
   }
+
   return (
     <div
       className="fixed bg-black/30 bg-opacity-60 top-0

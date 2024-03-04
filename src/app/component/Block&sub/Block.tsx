@@ -15,8 +15,8 @@ import Modal from "../Modal";
 import Modal2 from "../Modal2";
 
 const Block = () => {
-  const [chain1, setChain1] = useState(0);
-  const [chain2, setChain2] = useState(1);
+  // const [chain1, setChain1] = useState(0);
+  // const [chain2, setChain2] = useState(1);
 
   const {
     showModal,
@@ -69,7 +69,7 @@ const Block = () => {
           </div>
 
           <div>
-            <SubBlock chain1={chain1} />
+            <SubBlock />
           </div>
 
           <div className="flex justify-center absolute top-[37%] left-[50%]">
@@ -82,7 +82,7 @@ const Block = () => {
           </div>
 
           <div>
-            <SubBlock1 chain2={chain2} />
+            <SubBlock1 />
           </div>
 
           <div className="h-[350px] mt-[275px]">
@@ -97,8 +97,8 @@ const Block = () => {
           </div>
         </div>
       </div>
-      {showModal && <Modal setChain1={setChain1} chain2={chain2} />}
-      {showModal2 && <Modal2 setChain2={setChain2} chain1={chain1} />}
+      {showModal && <Modal />}
+      {showModal2 && <Modal2 />}
     </main>
   );
 };
