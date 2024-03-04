@@ -1,29 +1,35 @@
 import { create } from "zustand";
 
-type State = {
+interface AppState {
   pick: number;
   showModal: boolean;
   showModal2: boolean;
-  setPick: (value: number) => void;
-  setShowModal: (value: boolean) => void;
-  setShowModal2: (value: boolean) => void;
-};
 
-const useStore = create<State>((set) => ({
+  transpose: boolean;
+  enabled: boolean;
+
+  setPick: (pick: number) => void;
+
+  setShowModal: (show: boolean) => void;
+  setShowModal2: (show: boolean) => void;
+  setTranspose: (transpose: boolean) => void;
+  setEnabled: (value: boolean) => void;
+  onClose: () => void;
+  onClose2: () => void;
+}
+
+export const useStore = create<AppState>((set) => ({
   pick: 1,
   showModal: false,
   showModal2: false,
-  setPick: (value) => set(() => ({ pick: value })),
-  setShowModal: (value) => set(() => ({ showModal: value })),
-  setShowModal2: (value) => set(() => ({ showModal2: value })),
+  transpose: false,
+  enabled: false,
+
+  setPick: (pick) => set({ pick }),
+  setTranspose: (transpose) => set({ transpose }),
+  setShowModal: (showModal) => set({ showModal }),
+  setShowModal2: (showModal2) => set({ showModal2 }),
+  onClose: () => set({ showModal: false }),
+  onClose2: () => set({ showModal2: false }),
+  setEnabled: (value) => set({ enabled: value }),
 }));
-
-// Create your store, which includes both state and (optionally) actions
-// const usePersonStore = create<State & Action>((set) => ({
-//   firstName: "",
-//   lastName: "",
-//   updateFirstName: (firstName) => set(() => ({ firstName: firstName })),
-//   updateLastName: (lastName) => set(() => ({ lastName: lastName })),
-// }));
-
-export { useStore };

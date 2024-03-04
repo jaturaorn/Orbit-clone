@@ -1,3 +1,5 @@
+import { useStore } from "../index";
+
 import { HiMagnifyingGlass } from "react-icons/hi2";
 import { SiInterbase } from "react-icons/si";
 import { MdOutlineAndroid } from "react-icons/md";
@@ -7,15 +9,9 @@ import { DiNodejsSmall } from "react-icons/di";
 import { FaFeather, FaEthereum } from "react-icons/fa";
 import { RxCross1 } from "react-icons/rx";
 
-const Modal = ({
-  setChain1,
-  chain2,
-  onClose,
-}: {
-  setChain1: any;
-  chain2: any;
-  onClose: any;
-}) => {
+const Modal = ({ setChain1, chain2 }: { setChain1: any; chain2: any }) => {
+  const { onClose } = useStore();
+
   function click(a: number) {
     setChain1(a);
     onClose();

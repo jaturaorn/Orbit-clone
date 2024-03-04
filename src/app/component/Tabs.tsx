@@ -3,8 +3,7 @@
 import { useStore } from "../index";
 
 const Tabs = () => {
-  const pick = useStore((state) => state.pick);
-  const setPick = useStore((state) => state.setPick);
+  const { pick, setPick } = useStore();
   return (
     <main className=" flex justify-center my-3 bg-base-100">
       <div
@@ -15,7 +14,6 @@ const Tabs = () => {
           role="tab"
           className={`tab w-full h-full 
           ${pick == 1 ? "text-white" : "text-black"}
-          
            font-bold text-lg z-10`}
           onClick={() => {
             setPick(1);

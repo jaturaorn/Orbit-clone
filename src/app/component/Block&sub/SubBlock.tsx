@@ -1,5 +1,7 @@
 "use client";
 
+import { useStore } from "../../index";
+
 import { FaEthereum } from "react-icons/fa";
 import { MdOutlineKeyboardArrowDown } from "react-icons/md";
 import { SiInterbase } from "react-icons/si";
@@ -9,17 +11,8 @@ import { IoInfiniteSharp } from "react-icons/io5";
 import { DiNodejsSmall } from "react-icons/di";
 import { FaFeather } from "react-icons/fa";
 
-const SubBlock = ({
-  setShowModal,
-  chain1,
-  transpose,
-  enabled,
-}: {
-  setShowModal: any;
-  chain1: any;
-  transpose: boolean;
-  enabled: boolean;
-}) => {
+const SubBlock = ({ chain1 }: { chain1: any }) => {
+  const { setShowModal, enabled, transpose } = useStore();
   return (
     <div
       className={`bg-base-300 absolute top-[13%] w-[450px] 

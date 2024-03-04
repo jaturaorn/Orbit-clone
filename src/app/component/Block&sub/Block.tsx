@@ -1,7 +1,8 @@
 "use client";
 
+import { useStore } from "@/app";
+
 import { useState } from "react";
-import { useStore } from "zustand";
 
 import { ImLoop } from "react-icons/im";
 
@@ -13,23 +14,18 @@ import InforText from "./InforText";
 import Modal from "../Modal";
 import Modal2 from "../Modal2";
 
-const Block = ({
-  setShowModal,
-  onClose,
-  onClose2,
-  showModal2,
-  setShowModal2,
-}: {
-  setShowModal: any;
-  onClose: any;
-  onClose2: any;
-  showModal2: any;
-  setShowModal2: any;
-}) => {
+const Block = () => {
   const [chain1, setChain1] = useState(0);
   const [chain2, setChain2] = useState(1);
-  const [transpose, setTranspose] = useState(false);
-  const [enabled, setEnabled] = useState(false);
+
+  const {
+    showModal,
+    showModal2,
+    enabled,
+    setEnabled,
+    transpose,
+    setTranspose,
+  } = useStore();
 
   return (
     <main className="flex justify-center my-5">
@@ -73,12 +69,7 @@ const Block = ({
           </div>
 
           <div>
-            <SubBlock
-              setShowModal={setShowModal}
-              chain1={chain1}
-              transpose={transpose}
-              enabled={enabled}
-            />
+            <SubBlock chain1={chain1} />
           </div>
 
           <div className="flex justify-center absolute top-[37%] left-[50%]">
@@ -91,12 +82,7 @@ const Block = ({
           </div>
 
           <div>
-            <SubBlock1
-              setShowModal2={setShowModal2}
-              chain2={chain2}
-              transpose={transpose}
-              enabled={enabled}
-            />
+            <SubBlock1 chain2={chain2} />
           </div>
 
           <div className="h-[350px] mt-[275px]">
@@ -111,12 +97,8 @@ const Block = ({
           </div>
         </div>
       </div>
-      {showModal && (
-        <Modal onClose={onClose} setChain1={setChain1} chain2={chain2} />
-      )}
-      {showModal2 && (
-        <Modal2 onClose2={onClose2} setChain2={setChain2} chain1={chain1} />
-      )}
+      {showModal && <Modal setChain1={setChain1} chain2={chain2} />}
+      {showModal2 && <Modal2 setChain2={setChain2} chain1={chain1} />}
     </main>
   );
 };
