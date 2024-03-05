@@ -1,11 +1,14 @@
+import { useStore } from "../../index";
+
 import { FaRedditAlien } from "react-icons/fa";
 import { TbMinusVertical } from "react-icons/tb";
 import { BsQuestionLg } from "react-icons/bs";
 import { IoTime } from "react-icons/io5";
 
-const InforText = ({ transpose }: { transpose: boolean }) => {
+const InforText = () => {
+  const { transpose } = useStore();
   return (
-    <div className="flex flex-col my-5 gap-y-3">
+    <div className="flex flex-col my-5 gap-y-5">
       <div
         className={`flex gap-3 items-center
         ${transpose === true ? "hidden" : ""} `}

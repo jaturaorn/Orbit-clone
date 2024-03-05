@@ -13,7 +13,7 @@ export default function Home() {
   const { pick } = useStore();
 
   return (
-    <main className="overflow-hidden bg-base-100">
+    <main className="overflow-hidden bg-white">
       <Navbar />
       <Tabs />
       {pick == 1 ? <Block /> : <BlockMaker />}

@@ -10,19 +10,22 @@ import { IoInfiniteSharp } from "react-icons/io5";
 import { DiNodejsSmall } from "react-icons/di";
 import { FaFeather } from "react-icons/fa";
 
+import Dropdown1 from "../Dropdown1";
+
 const SubBlock1 = () => {
   const { setShowModal2, enabled, transpose, chain2 } = useStore();
   return (
     <div
-      className={`bg-base-300 absolute top-[43%] w-[450px] 
-    h-28 rounded-xl flex-col p-2 my-2 cursor-pointer transition-all duration-200
+      className={`bg-base-300 absolute w-[525px]
+     rounded-xl flex-col p-2 my-2 cursor-pointer transition-all duration-200
     ${
-      transpose == true
-        ? "translate-x-[0%] top-[12%] translate-y-[0%] z-10"
-        : "translate-x-[0%] top-[43%] translate-y-[0%] z-10"
+      transpose === true
+        ? "translate-x-[0%] top-[13%] left-[5%] translate-y-[0%] "
+        : "translate-x-[0%] top-[40%] left-[5%] translate-y-[0%] "
     }
     `}
     >
+      {/* <div className="bg-red-300 w-64 h-64 ">{transpose + "test"}</div> */}
       <p>To</p>
       <div className="flex justify-between items-center">
         <div
@@ -98,17 +101,18 @@ const SubBlock1 = () => {
             className="input input-ghost w-full max-w-sm"
           />
         </div>
-        {enabled ? (
-          <select className="select select-bordered select-sm w-[74px]">
-            <option>ETH</option>
-            <option>USDC</option>
-            <option>USDT</option>
-          </select>
-        ) : (
+        <div className="flex items-center gap-x-3">
           <button className="bg-slate-400 rounded-full p-1 text-white">
             <BsQuestionLg color="white" size={12} />
           </button>
-        )}
+          {enabled ? (
+            <div className="bg-white rounded-xl">
+              <Dropdown1 />
+            </div>
+          ) : (
+            ""
+          )}
+        </div>
       </div>
     </div>
   );

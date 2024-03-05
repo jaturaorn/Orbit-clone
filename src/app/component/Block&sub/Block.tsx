@@ -1,8 +1,6 @@
 "use client";
 
-import { useStore } from "@/app";
-
-import { useState } from "react";
+import { useStore } from "../../index";
 
 import { ImLoop } from "react-icons/im";
 
@@ -13,6 +11,8 @@ import SubBlock1 from "./SubBlock1";
 import InforText from "./InforText";
 import Modal from "../Modal";
 import Modal2 from "../Modal2";
+import Dropdown from "../Dropdown";
+import { FaEthereum } from "react-icons/fa";
 
 const Block = () => {
   // const [chain1, setChain1] = useState(0);
@@ -25,24 +25,51 @@ const Block = () => {
     setEnabled,
     transpose,
     setTranspose,
+    chain3,
   } = useStore();
 
   return (
     <main className="flex justify-center my-5">
       <div
-        className={`card shrink-0 w-full max-w-lg shadow-2xl bg-base-100 h-[525px] 
-      ${transpose === true ? "h-[498px]" : ""}`}
+        className={`card shrink-0 w-full max-w-xl shadow-2xl bg-base-100 h-[500px] 
+      ${transpose === true ? "h-[480px]" : ""}`}
       >
         <div className="card-body relative h-[260px]">
           <div className="flex justify-between items-center">
             <div className="flex items-center gap-3">
               <p className="font-bold text-xl">Token</p>
 
-              <select className="select select-bordered select-sm w-full max-w-sm">
+              <div className={enabled ? "hidden" : ""}>
+                {chain3 == 0 ? (
+                  <Dropdown />
+                ) : (
+                  (
+                    <div
+                      className="flex gap-x-2 items-center bg-[#f5f5f5] px-2 
+                  py-1 text-md font-bold text-black hover:bg-black/30 gap-1
+                focus:outline-none focus-visible:ring-2 focus-visible:ring-white/75"
+                    >
+                      <FaEthereum />
+                      <p className="text-gray-900">ETH</p>
+                    </div>
+                  ) && (
+                    <div
+                      className="flex gap-x-2 items-center bg-[#f5f5f5] px-2 
+              py-1 text-md font-bold text-black hover:bg-black/30 gap-1
+            focus:outline-none focus-visible:ring-2 focus-visible:ring-white/75"
+                    >
+                      <FaEthereum />
+                      <p className="text-gray-900">ETH</p>
+                    </div>
+                  )
+                )}
+              </div>
+
+              {/* <select className="select select-bordered select-sm w-full max-w-sm">
                 <option>ETH</option>
                 <option>USDC</option>
                 <option>USDT</option>
-              </select>
+              </select> */}
             </div>
             <div className="flex items-center gap-3">
               <p className={`font-bold text-xl`}>
@@ -68,32 +95,32 @@ const Block = () => {
             </div>
           </div>
 
-          <div>
+          <div className="">
             <SubBlock />
           </div>
 
-          <div className="flex justify-center absolute top-[37%] left-[50%]">
-            <button
-              className="w-8 h-8 p-2 rounded-lg bg-red-500 hover:bg-red-700"
-              onClick={() => setTranspose(!transpose)}
-            >
+          <div
+            className="flex justify-center absolute top-[33%] left-[50%] cursor-pointer"
+            onClick={() => setTranspose(!transpose)}
+          >
+            <button className="w-8 h-8 p-2 rounded-lg bg-red-500 hover:bg-red-700">
               <ImLoop size={15} color="white" className="w-full h-full" />
             </button>
           </div>
 
-          <div>
+          <div className="">
             <SubBlock1 />
           </div>
 
-          <div className="h-[350px] mt-[275px]">
+          <div className={`mt-[225px] h-[300px] `}>
             <button
               className="btn bg-red-500 hover:bg-red-700 
-            btn-block text-xl font-bold text-white shadow-lg"
+              w-[525px] text-xl font-bold text-white shadow-lg"
             >
               SEND
             </button>
 
-            <InforText transpose={transpose} />
+            <InforText />
           </div>
         </div>
       </div>

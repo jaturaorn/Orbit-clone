@@ -2,6 +2,8 @@
 
 import { useStore } from "../../index";
 
+import Dropdown from "../Dropdown";
+
 import { FaEthereum } from "react-icons/fa";
 import { MdOutlineKeyboardArrowDown } from "react-icons/md";
 import { SiInterbase } from "react-icons/si";
@@ -10,22 +12,23 @@ import { FaArrowRightArrowLeft } from "react-icons/fa6";
 import { IoInfiniteSharp } from "react-icons/io5";
 import { DiNodejsSmall } from "react-icons/di";
 import { FaFeather } from "react-icons/fa";
+import Dropdown1 from "../Dropdown1";
 
 const SubBlock = () => {
   const { setShowModal, enabled, transpose, chain1 } = useStore();
   return (
     <div
-      className={`bg-base-300 absolute top-[13%] w-[450px] 
-    h-28 rounded-xl flex-col p-2 my-2 cursor-pointer transition-all duration-200
-    ${
-      transpose == true
-        ? "translate-x-[0%] top-[43%] translate-y-[0%] z-10"
-        : "translate-x-[0%] top-[12%] translate-y-[0%] z-10"
-    }
-    `}
+      className={`bg-base-300 absolute w-11/12
+   rounded-xl flex-col p-2 my-2 cursor-pointer transition-all duration-200
+  ${
+    transpose === true
+      ? "translate-x-[0%] top-[40%] left-[5%] translate-y-[0%] "
+      : "translate-x-[0%] top-[13%] left-[5%] translate-y-[0%] "
+  }
+  `}
     >
       <p className="text-sm text-slate-500">From</p>
-      <div className="flex justify-between items-center">
+      <div className="flex gap-x-3 items-center">
         <div
           className="flex items-center gap-x-2"
           onClick={() => setShowModal(true)}
@@ -98,17 +101,16 @@ const SubBlock = () => {
             placeholder="at least 0.00005"
             className="input input-ghost w-full max-w-md"
           />
-          <p>
+          <div className="flex items-center gap-x-3">
+            <p className="text-blue-600">Max</p>
             {enabled ? (
-              <select className="select select-bordered select-sm w-[74px]">
-                <option>ETH</option>
-                <option>USDC</option>
-                <option>USDT</option>
-              </select>
+              <div className="bg-white rounded-xl">
+                <Dropdown1 />
+              </div>
             ) : (
-              <a className="text-blue-600">Max</a>
+              ""
             )}
-          </p>
+          </div>
         </div>
       </div>
     </div>

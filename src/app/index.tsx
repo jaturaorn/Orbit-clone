@@ -16,6 +16,7 @@ interface AppState {
   chain2: number;
   transpose: boolean;
   enabled: boolean;
+  chain3: number;
 
   setPick: (pick: number) => void;
   setChain1: (chain1: number) => void;
@@ -24,6 +25,7 @@ interface AppState {
   setShowModal2: (show: boolean) => void;
   setTranspose: (transpose: boolean) => void;
   setEnabled: (value: boolean) => void;
+  setChain3: (chain3: number) => void;
   onClose: () => void;
   onClose2: () => void;
 }
@@ -44,6 +46,7 @@ export const useStore = create<AppState>((set) => ({
   enabled: false,
   chain1: 0,
   chain2: 1,
+  chain3: 0,
 
   setPick: (pick) => set({ pick }),
   setTranspose: (transpose) => set({ transpose }),
@@ -54,4 +57,5 @@ export const useStore = create<AppState>((set) => ({
   setEnabled: (value) => set({ enabled: value }),
   setChain1: (chain1) => set({ chain1 }),
   setChain2: (chain2) => set({ chain2 }),
+  setChain3: (chain3) => set({ chain3 }),
 }));
