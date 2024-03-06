@@ -10,8 +10,6 @@ import { IoInfiniteSharp } from "react-icons/io5";
 import { DiNodejsSmall } from "react-icons/di";
 import { FaFeather } from "react-icons/fa";
 
-import Dropdown1 from "../Dropdown1";
-
 const SubBlock1 = () => {
   const { setShowModal2, enabled, transpose, chain2 } = useStore();
   return (

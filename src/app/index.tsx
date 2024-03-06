@@ -17,6 +17,9 @@ interface AppState {
   transpose: boolean;
   enabled: boolean;
   chain3: number;
+  isOpen: boolean;
+  toggleDropdown: () => void;
+  closeDropdown: () => void;
 
   setPick: (pick: number) => void;
   setChain1: (chain1: number) => void;
@@ -26,6 +29,7 @@ interface AppState {
   setTranspose: (transpose: boolean) => void;
   setEnabled: (value: boolean) => void;
   setChain3: (chain3: number) => void;
+  setIsOpen: (isOpen: boolean) => void;
   onClose: () => void;
   onClose2: () => void;
 }
@@ -47,6 +51,7 @@ export const useStore = create<AppState>((set) => ({
   chain1: 0,
   chain2: 1,
   chain3: 0,
+  isOpen: false,
 
   setPick: (pick) => set({ pick }),
   setTranspose: (transpose) => set({ transpose }),
@@ -58,4 +63,7 @@ export const useStore = create<AppState>((set) => ({
   setChain1: (chain1) => set({ chain1 }),
   setChain2: (chain2) => set({ chain2 }),
   setChain3: (chain3) => set({ chain3 }),
+  setIsOpen: (isOpen) => set({ isOpen }),
+  toggleDropdown: () => set((state) => ({ isOpen: !state.isOpen })),
+  closeDropdown: () => set({ isOpen: false }),
 }));

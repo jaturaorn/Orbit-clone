@@ -13,6 +13,7 @@ import Modal from "../Modal";
 import Modal2 from "../Modal2";
 import Dropdown from "../Dropdown";
 import { FaEthereum } from "react-icons/fa";
+import Dropdownself from "../Dropdownself";
 
 const Block = () => {
   // const [chain1, setChain1] = useState(0);
@@ -40,29 +41,8 @@ const Block = () => {
               <p className="font-bold text-xl">Token</p>
 
               <div className={enabled ? "hidden" : ""}>
-                {chain3 == 0 ? (
-                  <Dropdown />
-                ) : (
-                  (
-                    <div
-                      className="flex gap-x-2 items-center bg-[#f5f5f5] px-2 
-                  py-1 text-md font-bold text-black hover:bg-black/30 gap-1
-                focus:outline-none focus-visible:ring-2 focus-visible:ring-white/75"
-                    >
-                      <FaEthereum />
-                      <p className="text-gray-900">ETH</p>
-                    </div>
-                  ) && (
-                    <div
-                      className="flex gap-x-2 items-center bg-[#f5f5f5] px-2 
-              py-1 text-md font-bold text-black hover:bg-black/30 gap-1
-            focus:outline-none focus-visible:ring-2 focus-visible:ring-white/75"
-                    >
-                      <FaEthereum />
-                      <p className="text-gray-900">ETH</p>
-                    </div>
-                  )
-                )}
+                <Dropdownself />
+                {/* <Dropdown /> */}
               </div>
 
               {/* <select className="select select-bordered select-sm w-full max-w-sm">
@@ -95,7 +75,7 @@ const Block = () => {
             </div>
           </div>
 
-          <div className="">
+          <div>
             <SubBlock />
           </div>
 
@@ -108,7 +88,7 @@ const Block = () => {
             </button>
           </div>
 
-          <div className="">
+          <div>
             <SubBlock1 />
           </div>
 
